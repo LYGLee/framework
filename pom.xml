@@ -6,9 +6,15 @@
 
     <groupId>com.liyuan</groupId>
     <artifactId>framework</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
+    <modules>
+        <module>chapter1</module>
+        <module>chapter2</module>
+        <module>chapter3</module>
+        <module>zero</module>
+    </modules>
     <!--打成war包，默认为jar包-->
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
 
     <properties>
         <!--统一源码编码方式-->
@@ -16,66 +22,42 @@
     </properties>
 
 
-    <dependencies>
-        <!--servlet-->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
-            <!--如果某些依赖只需参与编译，无需打包，设置为provided,tomcat自带了servlet和jsp对应的jar包-->
-            <scope>provided</scope>
-        </dependency>
-        <!--jsp-->
-        <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>jsp-api</artifactId>
-            <version>2.2</version>
-            <scope>provided</scope>
-        </dependency>
-        <!--jstl-->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-            <!--如果依赖只是运行时需要无需参与编译可设置为runtime-->
-            <scope>runtime</scope>
-        </dependency>
-    </dependencies>
 
 
-    <build>
-        <plugins>
-            <!--Compile-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.3</version>
-                <!--统一源代码与编译输出的jdk版本-->
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-            <!--Test-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.18.1</version>
-                <!--使用maven打包时跳过单元测试-->
-                <configuration>
-                    <skipTests>true</skipTests>
-                </configuration>
-            </plugin>
-            <!--Tomcat的maven插件，可以直接tomcat7:run运行，无需配置tomcat-->
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.2</version>
-                <configuration>
-                    <path>/${project.artifactId}</path>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+
+    <!--<build>-->
+        <!--<plugins>-->
+            <!--&lt;!&ndash;Compile&ndash;&gt;-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-compiler-plugin</artifactId>-->
+                <!--<version>3.3</version>-->
+                <!--&lt;!&ndash;统一源代码与编译输出的jdk版本&ndash;&gt;-->
+                <!--<configuration>-->
+                    <!--<source>1.8</source>-->
+                    <!--<target>1.8</target>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--&lt;!&ndash;Test&ndash;&gt;-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-surefire-plugin</artifactId>-->
+                <!--<version>2.18.1</version>-->
+                <!--&lt;!&ndash;使用maven打包时跳过单元测试&ndash;&gt;-->
+                <!--<configuration>-->
+                    <!--<skipTests>true</skipTests>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--&lt;!&ndash;Tomcat的maven插件，可以直接tomcat7:run运行，无需配置tomcat&ndash;&gt;-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.tomcat.maven</groupId>-->
+                <!--<artifactId>tomcat7-maven-plugin</artifactId>-->
+                <!--<version>2.2</version>-->
+                <!--<configuration>-->
+                    <!--<path>/${project.artifactId}</path>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
 
 </project>
